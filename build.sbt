@@ -1,9 +1,13 @@
-name := "Lat-Long to Web Mercator translator"
+import AssemblyKeys._
 
-scalaVersion := "2.10.2"
+assemblySettings
 
-libraryDependencies ++= Seq(
-  "org.scalaz" %% "scalaz-core" % "7.0.0",
-  "org.spire-math" %% "spire" % "0.5.0",
-  "org.scalatest" %% "scalatest" % "2.0.M5b"
-)
+mergeStrategy in assembly <<= (mergeStrategy in assembly) {
+  (old) => {
+    case "reference.conf" => MergeStrategy.concat
+    case "application.conf" => MergeStrategy.concat
+    case "META-INF/MANIFEST.MF" => MergeStrategy.discard
+    case "META-INF\\MANIFEST.MF" => MergeStrategy.discard
+    case _ => MergeStrategy.first
+  }
+}
