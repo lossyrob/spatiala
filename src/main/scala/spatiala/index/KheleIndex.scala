@@ -30,7 +30,7 @@ class KheleIndex[T](val measure:Measure)(f:T=>(Double,Double)) extends SpatialIn
   }
 
   def nearest(x:Double,y:Double):T = {
-    val r = rtree.nearestNeighbour(dc,acceptAll, 10, new SimplePointND(x,y)).get(0).get()
+    val r = rtree.nearestNeighbour(dc,acceptAll, 1, new SimplePointND(x,y)).get(0).get()
     points((r.getMinX,r.getMinY))
   }
 }
