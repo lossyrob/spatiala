@@ -1,7 +1,4 @@
 spatiala
 ========
 
-Spatial functionality for Scala
-
-
-# UNDER ACTIVE DEVELOPMENT, NOT YET USABLE
+Just a cool name for a benchmark between 3 different spatial indexes.
